@@ -11,6 +11,7 @@ mongoose
 const courseSchema = new mongoose.Schema({
   name: String,
   author: String,
+  price: Number,
   tags: [String],
   date: { type: Date, default: Date.now },
   isPublished: Boolean
@@ -20,9 +21,10 @@ const Course = mongoose.model('Course', courseSchema);
 
 async function createCourse() {
   const course = new Course({
-    name: 'HTML course',
+    name: 'Java course',
     author: 'Sandeep Bansal',
-    tags: ['Frontend', 'html'],
+    price: 400,
+    tags: ['Backend', 'java'],
     isPublished: false
   });
 
@@ -45,5 +47,5 @@ async function getCourses(params) {
   console.log(courses);
 }
 
-getCourses();
+createCourse();
 console.clear();
